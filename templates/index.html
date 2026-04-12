@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Recommender</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+
+            background: url("https://images.unsplash.com/photo-1524985069026-dd778a71c7b4") no-repeat center center/cover;
+        }
+
+        /* DARK OVERLAY */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.75);
+            z-index: -1;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .header h1 {
+            color: #e50914;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #ccc;
+        }
+
+        /* FORM */
+        .search-box {
+            text-align: center;
+            margin: 20px;
+        }
+
+        select, button {
+            padding: 12px;
+            margin: 10px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+        }
+
+        select {
+            width: 280px;
+        }
+
+        button {
+            background: linear-gradient(45deg, #e50914, #ff3c3c);
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #e50914;
+        }
+
+        /* GRID */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+
+        /* CARD */
+        .card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(229, 9, 20, 0.6);
+        }
+
+        /* SHINE EFFECT */
+        .card::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+            top: -100%;
+            left: 0;
+            transition: 0.5s;
+        }
+
+        .card:hover::before {
+            top: 100%;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            z-index: 1;
+            position: relative;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>🎬 Movie Recommender</h1>
+    <p>Find movies similar to your favorite 🎥</p>
+</div>
+
+<div class="search-box">
+    <form method="POST">
+        <select name="movie">
+            {% for movie in movie_list %}
+                <option value="{{ movie }}">{{ movie }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">🔥 Recommend</button>
+    </form>
+</div>
+
+<div class="container">
+    {% for name in names %}
+        <div class="card">
+            <h3>{{ name }}</h3>
+        </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>
