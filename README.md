@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🎬 Netflix Movie Recommender System
 
 A modern **Netflix-style Movie Recommender System** built using **Flask**.
@@ -93,3 +94,6 @@ python app.py
 ## ⭐ Show your support
 
 If you like this project, give it a ⭐ on GitHub!
+=======
+# netflix-movie-recommender-v2
+>>>>>>> 35404786cab9fbdcf0043124e143f8ce2fddcfb4
