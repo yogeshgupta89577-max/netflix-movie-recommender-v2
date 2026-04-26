@@ -5,6 +5,9 @@ A modern **Netflix-style Movie Recommender System** built using **Flask**.
 It suggests similar movies based on user selection with a clean and interactive UI.
 
 ---
+## 🚀 Live Demo
+https://netflix-movie-recommender-v2.onrender.com
+---
 
 ## 📸 Preview
 
